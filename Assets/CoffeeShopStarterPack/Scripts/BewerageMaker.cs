@@ -101,13 +101,13 @@ namespace PW
             //It would override the transforms if we didn't
             if (useTweeningAnimation)
             {
-                if(m_animator!=null)
+                if (m_animator != null)
                     m_animator.enabled = false;
             }
-                
+
         }
 
-        void OnPointerEnter()
+        public void TiltInteract()
         {
             if (canFillCup)
             {
@@ -123,7 +123,7 @@ namespace PW
             SetTheCup();
 
             //Show the indicator
-            if(m_progressHelper!=null)
+            if (m_progressHelper != null)
                 m_progressHelper.ToggleHelper(true);
 
             //Start playing the animations or tweening
@@ -148,7 +148,7 @@ namespace PW
                 }
 
             }
-                StartCoroutine(DoPreFill(dummyAnimationTarget, finalTweenTarget));
+            StartCoroutine(DoPreFill(dummyAnimationTarget, finalTweenTarget));
         }
 
         IEnumerator DoPreFill(Transform target, Transform finalTweenValue)
@@ -165,8 +165,8 @@ namespace PW
             {
                 FinalPosition = finalTweenValue.position;
                 FinalRotation = finalTweenValue.rotation.eulerAngles;
-                totalDist = (FinalPosition - target.transform.position);
-                totalRot = (FinalRotation - target.transform.rotation.eulerAngles);
+                totalDist = FinalPosition - target.transform.position;
+                totalRot = FinalRotation - target.transform.rotation.eulerAngles;
             }
             while (curPreFill > 0)
             {
@@ -228,7 +228,7 @@ namespace PW
         void OnFillEnded()
         {
             //hide the UI indicator
-            if(m_progressHelper!=null)
+            if (m_progressHelper != null)
                 m_progressHelper.ToggleHelper(false);
 
             //disable collider, because we don't want interaction on the object
@@ -243,10 +243,9 @@ namespace PW
             }
 
             StartCoroutine(DoFillEnded());
-
         }
 
-        
+
         void SetTheCup()
         {
             GameObject cup = Instantiate(cupType, fillCupSpot);
@@ -255,7 +254,7 @@ namespace PW
 
             fillCupHelper.SetMachine(this);
 
-            if(m_progressHelper!=null)
+            if (m_progressHelper != null)
                 m_progressHelper.ToggleHelper(true);
 
         }
@@ -289,10 +288,10 @@ namespace PW
                 float reverseMove = preFillProcess;
                 if (dummyAnimationTarget != null && finalTweenTarget != null)
                 {
-                     FinalPosition = transform.position;
-                     FinalRotation = transform.rotation.eulerAngles;
-                     totalDist = (FinalPosition - dummyAnimationTarget.transform.position);
-                     totalRot = (FinalRotation - dummyAnimationTarget.transform.rotation.eulerAngles);
+                    FinalPosition = transform.position;
+                    FinalRotation = transform.rotation.eulerAngles;
+                    totalDist = FinalPosition - dummyAnimationTarget.transform.position;
+                    totalRot = FinalRotation - dummyAnimationTarget.transform.rotation.eulerAngles;
                 }
 
                 while (reverseMove > 0)
@@ -301,7 +300,7 @@ namespace PW
                     {
                         dummyAnimationTarget.transform.position += (Time.deltaTime * totalDist) / preFillProcess;
                         dummyAnimationTarget.transform.rotation = Quaternion.Euler(dummyAnimationTarget.transform.rotation.eulerAngles + (Time.deltaTime * totalRot) / preFillProcess);
-                        
+
 
                     }
                     reverseMove -= Time.deltaTime;
@@ -312,7 +311,7 @@ namespace PW
                     dummyAnimationTarget.localPosition = Vector3.zero;
                     dummyAnimationTarget.transform.localRotation = Quaternion.identity;
                 }
-                
+
             }
 
             yield return null;

@@ -113,7 +113,7 @@ namespace PW
             m_Collider.enabled = true;
         }
 
-        public virtual void OnMouseDown()
+        public virtual void TiltInteract()
         {
             if(currentProduct!=null && currentProduct.IsCooked)
             {

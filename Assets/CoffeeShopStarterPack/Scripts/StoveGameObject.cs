@@ -73,9 +73,9 @@ namespace PW
             isAnimating = false;
         }
 
-        public override void OnMouseDown()
+        public override void TiltInteract()
         {
-            base.OnMouseDown();
+            base.TiltInteract();
         }
 
     }

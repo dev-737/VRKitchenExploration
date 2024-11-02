@@ -79,7 +79,7 @@ namespace PW
             m_Collider.enabled = true;
         }
 
-        void OnMouseDown()
+        void TiltInteract()
         {
             if (m_Machine != null)
             {
