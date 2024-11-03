@@ -70,6 +70,7 @@
     <Compile Include="Assets\CoffeeShopStarterPack\Scripts\FillCupHelper.cs" />
     <Compile Include="Assets\CoffeeShopStarterPack\Scripts\Utilities\SliceHelper.cs" />
     <Compile Include="Assets\CoffeeShopStarterPack\Scripts\CreateProductOnPlaceHolder.cs" />
+    <Compile Include="Assets\Scripts\CardboardTeleportation.cs" />
     <Compile Include="Assets\CoffeeShopStarterPack\Scripts\Utilities\BasicGameEvents.cs" />
     <Compile Include="Assets\CoffeeShopStarterPack\Scripts\PlayerSlots.cs" />
     <Compile Include="Assets\CoffeeShopStarterPack\Scripts\ProductType.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Assets\CoffeeShopStarterPack\Scripts\CookingGameObject.cs" />
     <Compile Include="Assets\Scripts\TiltInteract.cs" />
     <Compile Include="Assets\CoffeeShopStarterPack\Scripts\OrderGenerator.cs" />
+    <Compile Include="Assets\Scripts\TeleportationSpot.cs" />
     <Compile Include="Assets\CoffeeShopStarterPack\Scripts\PanGameObject.cs" />
     <Compile Include="Assets\CoffeeShopStarterPack\Scripts\ReadyToServe.cs" />
     <Compile Include="Assets\Scripts\OpenCabinet.cs" />
